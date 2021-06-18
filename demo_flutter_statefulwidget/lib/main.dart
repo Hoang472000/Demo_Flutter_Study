@@ -20,6 +20,16 @@ class MyHomePage extends StatefulWidget {
   }
 
 }
+//su dung statelessWidget do Text khong thay doi , con counter la gia tri truyen vao va khong bi thay doi trong MyText
+class MyText extends StatelessWidget{
+    MyText({this.counter});
+    final int counter;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('tui la widget Text. Data cua tui hien tai la: $counter');
+  }
+}
 
 class MyHomePageState extends State<MyHomePage> {
   int counter =0;
@@ -28,11 +38,11 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('tui la widget Text. Data cua tui hien tai la: $counter'),
+        child: MyText(counter: counter,),//o day ta truyen vao counter
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          setState(() {
+          setState(() {//moi lan setState thi lai goi lai ham build()
             counter++;
           });
         },
