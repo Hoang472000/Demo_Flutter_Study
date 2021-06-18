@@ -8,6 +8,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(//tao 1 style chung va share style nay den cac Widget khap Widget tree
+        primarySwatch: Colors.blue,
+      ),
       home: MyHomePage(),
     );
   }
@@ -17,6 +20,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar(title: Text('Demo SnackBar'),),//tao AppBar
       body: Center(
         child:Builder(//ham Builder tao ra context moi
           builder: (context)=>buildFlatButton(context),// tu vi tri context nay se tim thay scaffold ben tren
