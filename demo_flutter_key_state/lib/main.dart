@@ -30,7 +30,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  var listTile=<Widget>[Tile(),Tile()];
+  var listTile=<Widget>[// tao uniquekey se sinh ra cac key ko trung nhau
+    Padding(
+        key: UniqueKey(),
+        padding: const EdgeInsets.all(8.0),
+        child: Tile()
+    ),
+    Padding(
+        key: UniqueKey(),//khai bao global cho key nam o padding (de danh key cho padding )
+        padding: const EdgeInsets.all(8.0),
+        child: Tile()//ko khai bao local cho key nam ow tile (se lam cho element ko nhan ddc padding co key la gi)
+    ),
+  ];
 
   void _incrementCounter() {
     setState(() {
@@ -80,7 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class Tile extends StatelessWidget {
+class Tile extends StatefulWidget {//khi chuyen tu less sang ful thi no ko doi mau
+  // NN: do khi thuc hien wrap thi element no ko phan biet duoc widget nao dan den ko color ko doi
+  // BPXL: them key cho widget no se them key cho element ,va wrap thi element no se tim den dung key
+  Tile({Key key}):super(key: key);
+
+  @override
+  _TileState createState() => _TileState();
+}
+
+class _TileState extends State<Tile> {
   final Color color = generateRandomColor();
 
   @override
