@@ -32,12 +32,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   var listTile=<Widget>[// tao uniquekey se sinh ra cac key ko trung nhau
     Padding(
-        key: UniqueKey(),
+        key: ValueKey(113),//su dung valuekey thi no se ko thay doi ,con globalkey se sinh ra key ngau nhien ko trung nhau
         padding: const EdgeInsets.all(8.0),
-        child: Tile()
+        child: Tile(key: ValueKey(113),)
     ),
     Padding(
-        key: UniqueKey(),//khai bao global cho key nam o padding (de danh key cho padding )
+        // key: GlobalKey(),//khai bao global cho key nam o padding (de danh key cho padding )
         padding: const EdgeInsets.all(8.0),
         child: Tile()//ko khai bao local cho key nam ow tile (se lam cho element ko nhan ddc padding co key la gi)
     ),
